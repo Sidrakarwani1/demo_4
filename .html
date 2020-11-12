@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.x-git.js"></script>
+    <style>
+        .design{
+            background-color: aqua;
+            width: 30px;
+    
+    
+        }
+    </style>
+</head>
+
+<body>
+ <button id='btn'>show</button>
+ <div class="container">
+    <div class="section"></div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+
+
+
+            $.ajax({
+            url:'https://fakestoreapi.com/products',
+            method:'GET',
+            success:function(data){
+                console.log(data);
+
+                var Apd= '';
+
+                $.each(data,function(key,val){
+                    Apd+='<p>'+val.category+'</p>' + '<p>'+val.price+'</p>'+'<img src="'+val.image+'"/>';
+
+                });
+                $('.section').append(Apd);
+                $('p').addClass('design')
+                
+
+            }
+            });
+
+
+
+        });
+
+
+        });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $.ajax({
+            url:'https://fakestoreapi.com/products',
+            method:'GET',
+            success:function(data){
+                console.log(data);
+
+                var Apd= '';
+
+                $.each(data,function(key,val){
+                    Apd+='<p>'+val.category+'</p>';
+
+                });
+                $('.section'.append(Apd));
+                $('p').addClass('design')
+
+            }
+            });
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
